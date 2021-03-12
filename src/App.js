@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <CartHeader />
       <CartItems />
-      <CartFooter />
+      <CartFooter copyright="2016" />
     </div>
   );
 }

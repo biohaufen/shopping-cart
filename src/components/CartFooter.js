@@ -5,7 +5,7 @@ class CartFooter extends Component {
     return (
       <nav className="navbar navbar-dark bg-dark">
         <a className="navbar-brand" href="#">
-          &copy; 2018
+          &copy; {this.props.copyright}
         </a>
       </nav>
     );
