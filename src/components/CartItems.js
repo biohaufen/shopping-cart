@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CartItem from "./CartItem";
 
 class CartItems extends Component {
+  calculateSum = () => this.props.items.reduce((acc,curr) => acc + curr.product.priceInCents, 0);
   render() {
     return (
       <div className="container">
@@ -22,6 +23,7 @@ class CartItems extends Component {
             />
           ))}{" "}
         </div>
+        Total Price: {`$${this.calculateSum()/100}`}
       </div>
     );
   }
