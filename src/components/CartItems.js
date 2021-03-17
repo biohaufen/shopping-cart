@@ -2,7 +2,16 @@ import React, { Component } from "react";
 import CartItem from "./CartItem";
 
 class CartItems extends Component {
-  calculateSum = () => this.props.productList.filter((product) => this.props.items.some((item) => item.product_id === product.id)).reduce((acc,curr) => acc + curr.priceInCents, 0);
+  findQuantity = (curr) => {
+    console.log(this.props.items.find((item) => item.product_id === curr.id).quantity)
+    return this.props.items.find((item) => item.product_id === curr.id).quantity
+  }
+
+  calculateSum = () => {
+    const validItems = this.props.productList.filter((product) => this.props.items.some((item) => item.product_id === product.id))
+    return validItems.reduce((acc,curr) => acc + (curr.priceInCents * +this.findQuantity(curr)) ,0)
+  }
+ 
   render() {
     return (
       <div className="container">
@@ -24,7 +33,7 @@ class CartItems extends Component {
             />
           ))}{""}
         </div>
-        Total Price: {`$${this.calculateSum()/100}`}
+        <small>Total Price: <b>{`$${this.calculateSum()/100}`}</b></small>
       </div>
     );
   }
