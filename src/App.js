@@ -40,7 +40,7 @@ class App extends Component {
         <CartHeader />
         <CartItems items={this.state.cartItemsList} productList={this.state.products} />
         <AddItem products={this.state.products} addToCart={this.addToCart} />
-        <CartFooter copyright={new Date().getFullYear} />
+        <CartFooter copyright={new Date().getFullYear()} />
       </div>
     );
   }

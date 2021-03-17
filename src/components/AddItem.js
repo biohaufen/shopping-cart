@@ -25,30 +25,29 @@ class AddItem extends Component {
 
     render() {
         return (
-            <form class="container" onSubmit={this.handleSubmit}>
-                <div class="form-group">
-                    <label for="quantity">Quantity</label>
+            <form className="container" onSubmit={this.handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="quantity">Quantity</label>
                     <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         id="quantity"
                         value={this.state.currentSubmitQuantity}
                         onChange={this.handleQuantityChange} />
                 </div>
-                <div class="form-group">
-                    <label for="productSelect">Products</label>
+                <div className="form-group">
+                    <label htmlFor="productSelect">Products</label>
                     <select
-                        class="form-control"
+                        className="form-control"
                         id="productSelect"
                         defaultValue="Select an option..."
                         options={this.props.products}
-                        value={this.state.selectedProduct}
                         onChange={this.handleSelectChange}
                     >
-                        {this.props.products.map((item) => <option>{item.name}</option>)}
+                        {this.props.products.map((item) => <option key={item.id}>{item.name}</option>)}
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary" onClick={this.handleSubmit}>Submit</button>
+                <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Submit</button>
             </form>
         );
     }

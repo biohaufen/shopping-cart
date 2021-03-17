@@ -17,6 +17,7 @@ class CartItems extends Component {
           </div>
           {this.props.items.map((item) => (
             <CartItem
+              key={item.id}
               name={this.props.productList.find((product) => product.id === item.product_id).name}
               price={this.props.productList.find((product) => product.id === item.product_id).priceInCents / 100}
               quantity={item.quantity}

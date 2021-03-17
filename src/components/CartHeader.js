@@ -4,9 +4,9 @@ class CartHeader extends Component {
   render() {
     return (
       <nav className="navbar navbar-dark bg-primary">
-        <a className="navbar-brand" href="#">
+        <div className="navbar-brand">
           Shopping Cart
-        </a>
+        </div>
       </nav>
     );
   }
