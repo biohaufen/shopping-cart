@@ -3,7 +3,6 @@ import CartItem from "./CartItem";
 
 class CartItems extends Component {
   findQuantity = (curr) => {
-    console.log(this.props.items.find((item) => item.product_id === curr.id).quantity)
     return this.props.items.find((item) => item.product_id === curr.id).quantity
   }
 

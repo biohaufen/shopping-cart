@@ -4,20 +4,20 @@ class AddItem extends Component {
     state = { currentSubmitQuantity: "", selectedProductId: 1 };
     handleSubmit = (e) => {
         e.preventDefault();
+            // eslint-disable-next-line eqeqeq
             const selectedProduct = this.props.products.find(item => item.id == this.state.selectedProductId);
             const itemToAdd = 
                 {
                     product_id: selectedProduct.id,
-                    quantity: this.state.currentSubmitQuantity,
+                    quantity: +this.state.currentSubmitQuantity,
                 }
-            this.props.postRequestAddItemToCart(itemToAdd)
+            this.props.addItemToCart(itemToAdd)
     };
 
     handleQuantityChange = (e) => {
         this.setState({ currentSubmitQuantity: e.target.value });
     };
     handleSelectChange = (e) => {
-        console.log(e.target.value)
         this.setState({ selectedProductId: e.target.value });
     };
 
