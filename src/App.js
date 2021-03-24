@@ -20,7 +20,7 @@ class App extends Component {
 
     const jsonProducts = await responseProducts.json()
     const jsonCartItems = await responseCartItems.json()
-
+    
     this.setState({ products:jsonProducts, cartItemsList:jsonCartItems })
   }
   postRequestToApi = async (itemToAdd) => {
