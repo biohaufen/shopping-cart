@@ -15,16 +15,16 @@ class App extends Component {
   }
 
   getRequestToApi = async () => {
-    const responseProducts = await fetch(`${process.env.REACT_APP_API_URL}/api/products`)
-    const responseCartItems = await fetch(`${process.env.REACT_APP_API_URL}/api/items`)
+    const responseProducts = await fetch(`/api/products`)
+    const responseCartItems = await fetch(`/api/items`)
 
     const jsonProducts = await responseProducts.json()
     const jsonCartItems = await responseCartItems.json()
-    
+
     this.setState({ products:jsonProducts, cartItemsList:jsonCartItems })
   }
   postRequestToApi = async (itemToAdd) => {
-    await fetch(`${process.env.REACT_APP_API_URL}/api/items`, {
+    await fetch(`/api/items`, {
         method: 'POST',
         body: JSON.stringify(itemToAdd),
         headers: {
@@ -47,7 +47,7 @@ class App extends Component {
   }
 
   deleteItemFromCart = async(itemToDelete) => {
-    return fetch(`${process.env.REACT_APP_API_URL}/api/products/${itemToDelete.id}/items/${itemToDelete.id}`, {
+    return fetch(`/api/products/${itemToDelete.id}/items/${itemToDelete.id}`, {
       method: 'DELETE',
       body: JSON.stringify(itemToDelete),
       headers: {
