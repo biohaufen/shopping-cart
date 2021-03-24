@@ -5,6 +5,7 @@ import CartItems from "./components/CartItems";
 import AddItem from "./components/AddItem";
 
 import React, { Component } from "react";
+const API_LINK='https://api-collective.herokuapp.com/'
 
 class App extends Component {
 
@@ -15,8 +16,8 @@ class App extends Component {
   }
 
   getRequestToApi = async () => {
-    const responseProducts = await fetch(`/api/products`)
-    const responseCartItems = await fetch(`/api/items`)
+    const responseProducts = await fetch(`${API_LINK}/api/products`)
+    const responseCartItems = await fetch(`${API_LINK}/api/items`)
 
     const jsonProducts = await responseProducts.json()
     const jsonCartItems = await responseCartItems.json()
@@ -24,7 +25,7 @@ class App extends Component {
     this.setState({ products:jsonProducts, cartItemsList:jsonCartItems })
   }
   postRequestToApi = async (itemToAdd) => {
-    await fetch(`/api/items`, {
+    await fetch(`${API_LINK}/api/items`, {
         method: 'POST',
         body: JSON.stringify(itemToAdd),
         headers: {
@@ -47,7 +48,7 @@ class App extends Component {
   }
 
   deleteItemFromCart = async(itemToDelete) => {
-    return fetch(`/api/products/${itemToDelete.id}/items/${itemToDelete.id}`, {
+    return fetch(`${API_LINK}/api/products/${itemToDelete.id}/items/${itemToDelete.id}`, {
       method: 'DELETE',
       body: JSON.stringify(itemToDelete),
       headers: {

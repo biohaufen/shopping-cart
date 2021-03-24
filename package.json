@@ -35,6 +35,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy" : "https://fathomless-harbor-20820.herokuapp.com/"
+  }
 }
