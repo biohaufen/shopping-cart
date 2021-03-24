@@ -5,7 +5,7 @@ import CartItems from "./components/CartItems";
 import AddItem from "./components/AddItem";
 
 import React, { Component } from "react";
-const API_LINK='https://api-collective.herokuapp.com/'
+const API_LINK='https://api-collective.herokuapp.com'
 
 class App extends Component {
 
